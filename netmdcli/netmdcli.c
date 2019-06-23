@@ -422,6 +422,10 @@ int main(int argc, char* argv[])
         {
             netmd_track_previous(devh);
         }
+        else if(strcmp("sync", argv[1]) == 0)
+        {
+            netmd_sync_toc(devh);
+        }
         else if(strcmp("restart", argv[1]) == 0)
         {
             netmd_track_restart(devh);
@@ -1014,6 +1018,7 @@ void print_syntax()
     puts("restart - restarts current track");
     puts("pause - pause the unit");
     puts("stop - stop the unit");
+    puts("sync - sync the unit (may be useful for ensuring TOC edits are committed to disk)");
     puts("delete #1 [#2] - delete track (or tracks in range #1-#2 if #2 given)");
     puts("m3uimport <file> - import song and disc title from a playlist");
     puts("send <file> [<string>] - send WAV format audio file to the device and set title to <string> (optional)");
