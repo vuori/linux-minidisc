@@ -1047,7 +1047,7 @@ int netmd_write_track(netmd_dev_handle* devh, char* szFile)
 
             fprintf (stderr, "bytes left in chunk: %lu\n", (unsigned long)__bytes_left);
             p[6] = (__bytes_left >> 8) & 0xff;      /* Inserts the higher 8 bytes of the length */
-            p[7] = __bytes_left & 0xff;     /* Inserts the l./libnetmd/libnetmd.cower 8 bytes of the length */
+            p[7] = __bytes_left & 0xff;     /* Inserts the lower 8 bytes of the length */
             __chunk_size -= 0x10;          /* Update chunk size (for inserted header */
 
             p += 0x10;                     /* p should now point at the beginning of the next data segment */
